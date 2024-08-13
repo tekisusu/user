@@ -54,7 +54,6 @@ export function mostrarDatos() {
 
 // Inicializa la tabla y eventos al cargar el documento
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('#showModalButton').addEventListener('click', mostrarModal);
   mostrarDatos();
   initializeSearch(tabla);
   initScrollButtons(tabla);
