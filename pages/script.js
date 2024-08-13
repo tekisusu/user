@@ -1,18 +1,9 @@
 import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 import { database } from "../environment/firebaseConfig.js";
-import { deleteRow } from "../modules/tabla/deleteRow.js";
 import { mostrarModal } from "../modules/mostrarModal.js";
 import { initializeSearch } from "../modules/searchFunction.js";
 import { initScrollButtons } from "../modules/scrollButtons.js";
 import { updatePagination, currentPage, itemsPerPage } from "../modules/pagination.js";
-import { changeEstadoSelectEvent, changeRoleSelectEvent } from "../modules/tabla/changeSelectEvent.js";
-import { changeSemanaSelectEvent } from "../modules/tabla/changeSelectEvent/changeSemanaSelectEvent.js";
-import { changeLunesSelectEvent } from "../modules/tabla/changeSelectEvent/change1_LunesSelectEvent.js";
-import { changeMartesSelectEvent } from "../modules/tabla/changeSelectEvent/change2_MartesSelectEvent.js";
-import { changeMiercolesSelectEvent } from "../modules/tabla/changeSelectEvent/change3_MiercolesSelectEvent.js";
-import { changeJuevesSelectEvent } from "../modules/tabla/changeSelectEvent/change4_JuevesSelectEvent.js";
-import { changeViernesSelectEvent } from "../modules/tabla/changeSelectEvent/change5_ViernesSelectEvent.js";
-import { changeSabadoSelectEvent } from "../modules/tabla/changeSelectEvent/change6_SabadoSelectEvent.js";
 import "../modules/downloadToExcel.js";
 import "../auth/signup_Form.js";
 
@@ -45,20 +36,18 @@ export function mostrarDatos() {
         <tr>
           <td class="text-center">${filaNumero++}</td>
           <td class="text-center">${user.nombre}</td>
-          <td class="text-center">${user.semana}</td>
-          <td class="text-center">${user.lunes}</td>
-          <td class="text-center">${user.martes}</td>
-          <td class="text-center">${user.miercoles}</td>
-          <td class="text-center">${user.jueves}</td>
-          <td class="text-center">${user.viernes}</td>
-          <td class="text-center">${user.sabado}</td>
-          <td class="text-center">${user.estado}</td>
+          <td class="text-center"><span class="${!user.semana ? 'invisible-value' : ''}">${user.semana || ''}</span></td>
+          <td class="text-center"><span class="${!user.estado ? 'invisible-value' : ''}">${user.estado || ''}</span></td>
+          <td class="text-center"><span class="${!user.lunes ? 'invisible-value' : ''}">${user.lunes || ''}</span></td>
+          <td class="text-center"><span class="${!user.martes ? 'invisible-value' : ''}">${user.martes || ''}</span></td>
+          <td class="text-center"><span class="${!user.miercoles ? 'invisible-value' : ''}">${user.miercoles || ''}</span></td>
+          <td class="text-center"><span class="${!user.jueves ? 'invisible-value' : ''}">${user.jueves || ''}</span></td>
+          <td class="text-center"><span class="${!user.viernes ? 'invisible-value' : ''}">${user.viernes || ''}</span></td>
+          <td class="text-center"><span class="${!user.sabado ? 'invisible-value' : ''}">${user.sabado || ''}</span></td>
         </tr>
       `;
       tabla.innerHTML += row;
     }
-
-    deleteRow(database, collection); // Añade event listeners para eliminación
     updatePagination(totalPages, mostrarDatos);
   });
 }
@@ -69,15 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
   mostrarDatos();
   initializeSearch(tabla);
   initScrollButtons(tabla);
-  changeRoleSelectEvent(tabla, database, collection);
-  changeEstadoSelectEvent(tabla, database, collection);
-  changeSemanaSelectEvent(tabla, database, collection);
-  changeLunesSelectEvent(tabla, database, collection);
-  changeMartesSelectEvent(tabla, database, collection);
-  changeMiercolesSelectEvent(tabla, database, collection);
-  changeJuevesSelectEvent(tabla, database, collection);
-  changeViernesSelectEvent(tabla, database, collection);
-  changeSabadoSelectEvent(tabla, database, collection);
 });
 
 console.log(database);
