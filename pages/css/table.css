@@ -43,54 +43,37 @@ table th:nth-child(2) {
 }
 table td:nth-child(3),
 table th:nth-child(3) {
-    width: 180px;
+    width: 120px;
 }
 table td:nth-child(4),
 table th:nth-child(4) {
-    width: 160px;
+    width: 120px;
 }
 
 table td:nth-child(5),
 table th:nth-child(5) {
-    width: 160px;
+    width: 100px;
 }
 table td:nth-child(6),
 table th:nth-child(6) {
-    width: 160px;
+    width: 100px;
 }
 table td:nth-child(7),
 table th:nth-child(7) {
-    width: 160px;
+    width: 100px;
 }
 table td:nth-child(8),
 table th:nth-child(8) {
-    width: 160px;
+    width: 100px;
 }
 table td:nth-child(9),
 table th:nth-child(9) {
-    width: 160px;
+    width: 100px;
 }
 table td:nth-child(10),
 table th:nth-child(10) {
-    width: 160px;
-}
-table td:nth-child(11),
-table th:nth-child(11) {
-    width: 200px;
-}
-table td:nth-child(12),
-table th:nth-child(12) {
     width: 100px;
 }
-table td:nth-child(13),
-table th:nth-child(13) {
-    width: 300px;
-}
-table td:nth-child(14),
-table th:nth-child(14) {
-    width: 300px;
-}
-
 
 th,
 td {
