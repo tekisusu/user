@@ -36,7 +36,6 @@ export function mostrarDatos() {
       row.innerHTML = `
         <td class="text-center">${filaNumero++}</td>
         <td class="text-center">${user.nombre}</td>
-        <td class="text-center"><span class="${!user.semana ? 'invisible-value' : ''}" data-field="semana">${user.semana || ''}</span></td>
         <td class="text-center attendance-cell"></td>
         <td class="text-center"><span class="${!user.lunes ? 'invisible-value' : ''}" data-field="lunes">${user.lunes || ''}</span></td>
         <td class="text-center"><span class="${!user.martes ? 'invisible-value' : ''}" data-field="martes">${user.martes || ''}</span></td>
@@ -56,7 +55,7 @@ export function mostrarDatos() {
 
     spans.forEach((span) => {
       const textContent = span.textContent.trim();
-      if (textContent === "12.00" || textContent === "Completado") {
+      if (textContent === "12.00" || textContent === "Completo") {
         span.style.color = "green";
         span.style.fontWeight = "bold";
       }
